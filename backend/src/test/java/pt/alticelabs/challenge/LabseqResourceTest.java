@@ -11,22 +11,18 @@ class LabseqResourceTest {
 
     @Test
     void testLabseqEndpoint() {
-        long index = 10;
-
         given()
-                .when().get("/labseq/{n}", index)
+                .when().get("/labseq/{n}", 10)
                 .then()
                 .statusCode(200)
-                .body("index", equalTo((int) index))
-                .body("value", equalTo(3));
+                .body("index", equalTo(10))
+                .body("value", equalTo("3"));
     }
 
     @Test
     void testNegativeIndexReturnsError() {
-        long negativeIndex = -5;
-
         given()
-                .when().get("/labseq/{n}", negativeIndex)
+                .when().get("/labseq/{n}", -5)
                 .then()
                 .statusCode(400)
                 .contentType("application/json")

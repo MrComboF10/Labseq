@@ -8,29 +8,22 @@ git clone https://github.com/MrComboF10/labseq-service.git
 cd labseq-service
 ```
 ```
-docker run -p 8080:8080 labseq-service:1.0.0
+docker-compose up --build
 ```
-
-## Examples
-### HTTP request for Labseq(10)
-```
-http://localhost:8080/labseq/10
-```
-### Response
-```
-{"index":10,"value":3}
-```
+- Frontend: http://localhost:4200/
+- Backend: http://localhost:8080/labseq/10
+- SwaggerUI: http://localhost:8080/swagger-ui/
 
 ## Performance measurement
 ### Logs format
-```
-(executor-thread-<thread_number>) Labseq(<n>) executed in <execution_time> ms [source: <source_type>]
-```
-- **thread_number**: Number of the current thread
-- **n**: Index of the sequence
+(executor-thread-<**thread_number**>) Labseq(<**n**>) executed in <**execution_time**> ms [source: <**source_type**>]
+- **thread_number**: Current thread number
+- **n**: Sequence index
 - **execution_time**: Execution time in milliseconds
-- **source_type**: Can be from cache or from computation
-### Disable logs
+- **source_type**: From **cache** or **computation**
+### Enable/Disable logs
+1. Set MEASURETIME_LOGGING_ENABLED in .env
+2. Restart containers:
 ```
-docker run -p 8080:8080 -e MEASURETIME_LOGGING_ENABLED=false labseq-service:1.0.0
+docker compose up
 ```

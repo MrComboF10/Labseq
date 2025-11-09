@@ -1,0 +1,19 @@
+<main class="main">
+  <div class="content">
+    <h1>{{ title() }}</h1>
+
+    <div class="form">
+      <label>Enter n:</label>
+      <input type="number" [(ngModel)]="inputN" min="0" />
+      <button (click)="calculate()">Calculate</button>
+    </div>
+
+    <div *ngIf="loading">Loading...</div>
+
+    <div *ngIf="error" class="error">{{ error }}</div>
+
+    <div *ngIf="result !== null && !loading" class="result">
+      <p>labseq({{ n }}) = {{ result.toString() }}</p>
+    </div>
+  </div>
+</main>

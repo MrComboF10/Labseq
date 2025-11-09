@@ -1,6 +1,5 @@
 package pt.alticelabs.challenge.resource;
 
-import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -37,10 +36,20 @@ public class LabseqResource {
             content = @Content(
                     mediaType = "application/json",
                     schema = @Schema(implementation = LabseqResponse.class),
-                    examples = @ExampleObject(
-                            name = "Example",
-                            value = "{\"index\":10,\"value\":3}"
-                    )
+                    examples = {
+                            @ExampleObject(
+                                    name = "labseq(0)",
+                                    value = "{\"index\":0,\"value\":0}"
+                            ),
+                            @ExampleObject(
+                                    name = "labseq(5)",
+                                    value = "{\"index\":5,\"value\":1}"
+                            ),
+                            @ExampleObject(
+                                    name = "labseq(10)",
+                                    value = "{\"index\":10,\"value\":3}"
+                            )
+                    }
             )
     )
     @APIResponse(responseCode = "400", description = "Invalid index (negative number)")
@@ -48,7 +57,20 @@ public class LabseqResource {
             @PathParam("n")
             @org.eclipse.microprofile.openapi.annotations.parameters.Parameter(
                     description = "Non-negative index of the Labseq sequence",
-                    examples = @ExampleObject(name = "Example", value = "10")
+                    examples = {
+                            @ExampleObject(
+                                    name = "labseq(0)",
+                                    value = "0"
+                            ),
+                            @ExampleObject(
+                                    name = "labseq(5)",
+                                    value = "5"
+                            ),
+                            @ExampleObject(
+                                    name = "labseq(10)",
+                                    value = "10"
+                            )
+                    }
             )
             long n
     ) {

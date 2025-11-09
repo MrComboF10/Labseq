@@ -10,5 +10,9 @@ public record LabseqResponse(
         long index,
 
         @Schema(description = "Computed Labseq value corresponding to the given index")
-        BigInteger value
-) {}
+        String value
+) {
+    public LabseqResponse(long index, BigInteger value) {
+        this(index, value.toString());
+    }
+}
