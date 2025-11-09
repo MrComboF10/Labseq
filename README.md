@@ -5,7 +5,7 @@
 git clone https://github.com/MrComboF10/Labseq.git
 ```
 ```
-cd labseq-service
+cd Labseq
 ```
 ```
 docker-compose up --build
