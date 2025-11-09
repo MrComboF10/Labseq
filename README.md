@@ -27,5 +27,5 @@ docker-compose up --build
 1. Set MEASURETIME_LOGGING_ENABLED in .env
 2. Restart containers:
 ```
-docker compose up
+docker-compose up
 ```
