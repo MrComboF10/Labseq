@@ -2,7 +2,7 @@
 
 ## Build and run the project
 ```
-git clone https://github.com/MrComboF10/labseq-service.git
+git clone https://github.com/MrComboF10/Labseq.git
 ```
 ```
 cd labseq-service
